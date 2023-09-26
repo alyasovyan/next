@@ -20,6 +20,8 @@ cocktail = {
         var $cocktailIngredients = document.querySelector(".cocktail__ingredients");
         var $cocktailInstructions = document.querySelector(".cocktail__instructions");
         var $cocktailDataContainer = document.querySelectorAll(".cocktail-container");
+        var $imageContainer = document.querySelector(".cocktail__container.image__container");
+        var $instructionsContainer = document.querySelector(".cocktail__container.instructions__container");
 
         cocktail.elements.$button = $button;
         cocktail.elements.$cocktail = $cocktail;
@@ -28,6 +30,8 @@ cocktail = {
         cocktail.elements.$cocktailIngredients = $cocktailIngredients;
         cocktail.elements.$cocktailInstructions = $cocktailInstructions;
         cocktail.elements.$cocktailDataContainer = $cocktailDataContainer;
+        cocktail.elements.$imageContainer = $imageContainer;
+        cocktail.elements.$instructionsContainer = $instructionsContainer;
     },
 
     visibleCocktailData: function(event) {
@@ -41,12 +45,15 @@ cocktail = {
 
     loaderWork: function(type) {
         if(type === 'start') {
+            cocktail.elements.$imageContainer.classList.remove('open');
+            cocktail.elements.$instructionsContainer.classList.remove('open');
             cocktail.elements.$button.classList.add("loading");
             cocktail.elements.$cocktail.hidden = true;
             return;
         }
-        cocktail.elements.$button.classList.remove("loading");
+
         cocktail.elements.$cocktail.hidden = false;
+        cocktail.elements.$button.classList.remove("loading");
     },
 
     getCocktailRandom: async function () {
