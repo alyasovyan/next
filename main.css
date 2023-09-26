@@ -233,6 +233,7 @@ h1, h2, h3, h4, p, figure {
 
 .button.loading {
     transform: translate(-100%, -50%) scale(1.2);
+    pointer-events: none;
 }
 
 .button__title {
@@ -306,7 +307,7 @@ h1, h2, h3, h4, p, figure {
 }
 
 .cocktail {
-    height: 75vh;
+    height: 70vh;
     overflow: scroll;
     position: relative;
 }

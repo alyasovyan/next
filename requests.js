@@ -114,14 +114,13 @@ cocktail = {
     requestTemplate: async function(url) {
         try {
             var responseRequest = await fetch(url);
-            var responseArray = await responseRequest.json();
-            return responseArray;
+            return await responseRequest.json();
         } catch(error) {
             return error;
         }
     },
 
-    delay: (ms = 1000) => new Promise(r => setTimeout(r, ms)),
+    delay: (ms = 1000) => new Promise((fn) => setTimeout(fn, ms)),
 
     buildCocktailWrapper: function(data) {
         cocktail.elements.$cocktailTitle.innerText = data.strDrink;
@@ -131,55 +130,3 @@ cocktail = {
         cocktail.elements.$cocktailInstructions.innerText = data.strInstructions;
     }
 };
-
-// dateModified:"2016-07-18 22:34:37"
-// idDrink:"13899"
-// strAlcoholic:"Alcoholic"
-// strCategory:"Shot"
-// strCreativeCommonsConfirmed:"No"
-// strDrink:"3 Wise Men"
-// strDrinkAlternate:null
-// strDrinkThumb:"https://www.thecocktaildb.com/images/media/drink/wxqpyw1468877677.jpg"
-// strGlass:"Collins glass"
-// strIBA:null
-// strImageAttribution:null
-// strImageSource:null
-// strIngredient1:"Jack Daniels"
-// strIngredient2:"Johnnie Walker"
-// strIngredient3:"Jim Beam"
-// strIngredient4:null
-// strIngredient5:null
-// strIngredient6:null
-// strIngredient7:null
-// strIngredient8:null
-// strIngredient9:null
-// strIngredient10:null
-// strIngredient11:null
-// strIngredient12:null
-// strIngredient13:null
-// strIngredient14:null
-// strIngredient15:null
-// strInstructions:"put them them in a glass... and slam it to tha head."
-// strInstructionsDE:"In ein Glas geben... und ab in den Schädel."
-// strInstructionsES:null
-// strInstructionsFR:null
-// strInstructionsIT:"mettetele in un bicchiere ... E buona fortuna!"
-// strInstructionsZH-HANS:null
-// strInstructionsZH-HANT:null
-// strMeasure1:"1/3 oz "
-// strMeasure2:"1/3 oz "
-// strMeasure3:"1/3 oz "
-// strMeasure4:null
-// strMeasure5:null
-// strMeasure6:null
-// strMeasure7:null
-// strMeasure8:null
-// strMeasure9:null
-// strMeasure10:null
-// strMeasure11:null
-// strMeasure12:null
-// strMeasure13:null
-// strMeasure14:null
-// strMeasure15:null
-// strTags:null
-// strVideo:null
