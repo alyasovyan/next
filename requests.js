@@ -54,17 +54,20 @@ cocktail = {
         cocktail.loaderWork('start');
 
         var randomCocktailRequest = await cocktail.requestTemplate(cocktail.urls.random);
-        var randomCocktail = cocktail.formatData(randomCocktailRequest.drinks[0]);
+        var cocktailData = randomCocktailRequest.drinks[0];
 
-        if(randomCocktail.strAlcoholic === 'Non alcoholic' || randomCocktail.strCategory === 'Shot') {
+        var nonAlcoholic = cocktailData.strAlcoholic === 'Non alcoholic';
+        var isShot = cocktailData.strCategory === 'Shot';
+
+        if(nonAlcoholic || isShot) {
             await cocktail.getCocktailRandom();
             return;
         }
 
+        var randomCocktail = cocktail.formatData(cocktailData);
+        cocktail.buildCocktailWrapper(randomCocktail);
         await cocktail.delay();
 
-
-        cocktail.buildCocktailWrapper(randomCocktail);
         this.classList.add('bottom--position');
         cocktail.loaderWork();
     },
