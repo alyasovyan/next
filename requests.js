@@ -14,7 +14,6 @@ cocktail = {
 
     initElements: function() {
         var $button = document.querySelector(".button");
-
         var $cocktail = document.querySelector(".cocktail");
         var $cocktailTitle = document.querySelector(".cocktail__title");
         var $cocktailImg = document.querySelector(".cocktail__img");
@@ -68,7 +67,7 @@ cocktail = {
         cocktail.buildCocktailWrapper(randomCocktail);
         await cocktail.delay();
 
-        this.classList.add('bottom--position');
+        cocktail.elements.$button.classList.add('bottom--position');
         cocktail.loaderWork();
     },
 
